@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    p {
+  text-align:center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+</style>
+        <!-- Breadcrumbs Start -->
+        <div class="rs-breadcrumbs">
+            <div class="breadcrumbs-image">
+                <img src="static/images/breadcrumbs/1.jpg" alt="Breadcrumbs Image">
+                <div class="breadcrumbs-inner">
+                    <div class="container">
+                        <div class="breadcrumbs-text text-center">
+                            <h1 class="breadcrumbs-title mb-0">Plagiarism Tool</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>                
+        </div>
+        <!-- Breadcrumbs End -->
+<br><br>
+<form  method="POST" action="{% url 'similarity' %}">{% csrf_token %}
+       <div class="container" align="center">
+           <div class="row">
+
+               <div class="col-sm-0"></div>
+
+                <textarea placeholder="Enter your first text here" rows="14" name="text1"
+                   cols="68" class="ui-autocomplete-input"
+                  autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+               <div class="col-sm-1"></div>
+               <textarea placeholder="Enter your second text here" rows="14" name="text2"
+                   cols="68" class="ui-autocomplete-input"
+                  autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+           </div>
+           <br>
+               <button type="submit" style="height:50px,width:50px" class="btn btn-primary">Calculate Similarity</button>
+       </div>
+</form>
+<br><br>
+{% if percent %}
+    <h3 align="center">Plagiriasm Percentage : {{ percent }} %</h3>
+{% endif %}
+<br><br>
+
+        <!-- Call to Action Start -->
+        <div class="rs-cta pt-140 pb-140">
+            <div class="container">
+                <div class="cta-wrap red-bg">
+                    <div class="content-part">
+                        <h2 class="title white-color mb-28">Lets Move Forward</h2>
+                        <div class="btn-part">
+                            <a href="#">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="inner-spiner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="outer-spiner">
+                        <div class="motor">
+                            <!-- Outer 15 Balls -->
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call to Action End -->
+{% endblock %}

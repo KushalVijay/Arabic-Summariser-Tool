@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    p {
+  text-align:center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+</style>
+        <!-- Breadcrumbs Start -->
+        <div class="rs-breadcrumbs">
+            <div class="breadcrumbs-image">
+                <img src="static/images/breadcrumbs/1.jpg" alt="Breadcrumbs Image">
+                <div class="breadcrumbs-inner">
+                    <div class="container">
+                        <div class="breadcrumbs-text text-center">
+                            <h1 class="breadcrumbs-title mb-0">Summarizer Tool</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>                
+        </div>
+        <!-- Breadcrumbs End -->
+<br><br>
+
+       <div class="container" align="center">
+           <div class="row" align="center">
+
+               <form  method="POST" action="{% url 'summarizer' %}">{% csrf_token %}
+                <textarea placeholder="Enter your text here" rows="10" name="text"
+                  id="comment_text" cols="153" class="ui-autocomplete-input"
+                  autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+                    <br><br>
+                    <input name="percent" style="height:10px,width:100px;" type="text" placeholder="Enter the percent">
+                <button type="submit" style="height:50px,width:50px" class="btn btn-primary">Submit</button>
+                </form>
+           </div>
+       </div>
+<br><br>
+{% if summary %}
+    <h2 align="center">Summarized Output</h2>
+         <div class="container">
+             <div class="row">
+
+                 <div class="col-sm-12">
+                    {{ summary }}
+                 </div>
+             </div>
+         </div>
+{% endif %}
+<br><br>
+
+        <!-- Call to Action Start -->
+        <div class="rs-cta pt-140 pb-140">
+            <div class="container">
+                <div class="cta-wrap red-bg">
+                    <div class="content-part">
+                        <h2 class="title white-color mb-28">Lets Move Forward</h2>
+                        <div class="btn-part">
+                            <a href="#">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="inner-spiner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="outer-spiner">
+                        <div class="motor">
+                            <!-- Outer 15 Balls -->
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call to Action End -->
+{% endblock %}

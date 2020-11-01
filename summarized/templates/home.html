@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<style>
+    body {background: white;}
+
+
+h2 {margin-left: 55px;}
+
+textarea {
+  margin-top: 10px;
+  margin-left: 50px;
+  width: 800px;
+  height: 400px;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+  border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+  border-image: none;
+  border-radius: 6px 6px 6px 6px;
+  border-style: none solid solid none;
+  border-width: medium 1px 1px medium;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+  color: #555555;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1em;
+  line-height: 1.4em;
+  padding: 5px 8px;
+  transition: background-color 0.2s ease 0s;
+}
+
+
+textarea:focus {
+    background: none repeat scroll 0 0 #FFFFFF;
+    outline-width: 0;
+}
+</style>
+<h1 align="center">Summarizer Tool</h1>
+<div class="container">
+    <div class="row" align="center">
+        <form method="POST" action="{% url 'home' %}">{% csrf_token %}
+        <textarea  placeholder="Enter your text here" rows="40" name="text"
+          id="comment_text" cols="40" class="ui-autocomplete-input"
+          autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+            <br><br>
+            <input name="percent" style="height:10px,width:100px;" type="text" placeholder="Enter the percent">
+        <button type="submit" style="height:50px,width:50px" class="btn btn-primary">Submit</button>
+        </form>
+        <br>
+    </div>
+    <p align="center">
+        {% if summary %}
+        {{ summary }}
+        {% endif %}
+    </p>
+</div>
+
+</body>
+</html>

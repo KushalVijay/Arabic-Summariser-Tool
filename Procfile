@@ -1,0 +1,1 @@
+web: gunicorn nlptool.wsgi
